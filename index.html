@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style/style.css">
+    <title>My Todo List</title>
+</head>
+<body>
+      <main class="main">
+        <section class="app">
+          <header class="header">
+            <div>
+              <h1 class="header-title">My Todo List</h1>
+              <p class="date" data-date></p>
+            </div>
+          </header>
+          <div class="title-wrapper" data-empty-note>
+            <h2>Todo list is empty</h2>
+          </div>
+          <ul class="task-list" data-task-list></ul>
+          <div class="input-wrapper">
+            <input type="text" class="task-input" name="task" placeholder="Add a new task" data-task-input>
+            <span class="input-text"></span>
+            <div class="input-icon">
+              <ion-icon name="add-outline" class="add-icon" aria-hidden="true"></ion-icon>
+            </div>
+          </div>
+        </section>
+      </main>
+    <script src="src/js/script.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

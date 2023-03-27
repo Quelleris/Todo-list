@@ -1,0 +1,253 @@
+:root {
+    --clr-primary-700: hsl(0, 0%, 0%);
+    --clr-primary-500: hsl(256, 100%, 16%);
+    --clr-primary-400: hsl(247, 34%, 29%);
+    --clr-neutral-100: hsl(255, 100%, 100%);
+    --clr-neutral-400: hsl(240, 1%, 41%);
+    --clr-neutral-900: hsl(0, 0%, 0%);
+    --clr-remove: hsl(0, 42%, 57%);
+
+    --ff-base: "Poppins", sans-serif;
+  
+    --fs-1: 2.5rem;
+    --fs-2: 2.1rem;
+    --fs-3: 1.8rem;
+    --fs-4: 1.6rem;
+  
+    --fw-bold: 500;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--ff-base);
+    font-size: 0.625rem;
+    scroll-behavior: smooth;
+}
+
+li { list-style: none; }
+
+a,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input {
+    background: none;
+    border: none;
+    font: inherit;
+}
+
+button { 
+    background: none;
+    border: none;
+    cursor: pointer; 
+}
+
+ion-icon { pointer-events: none; }
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--clr-primary-700), var(--clr-primary-500));
+    color: var(--eerie-black);
+    font-size: 1.6rem;
+    padding-block: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+}
+
+h1,
+h2 { font-weight: var(--fw-bold); }
+
+h1 { font-size: var(--fs-1); }
+
+h2 { font-size: var(--fs-3); }
+
+.app {
+    height: 100%;
+    position: relative;
+    background-color: var(--clr-primary-400);
+    padding: 1.75rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-title {
+    color: var(--clr-neutral-100);
+    margin-bottom: 6px;
+}
+
+.date {
+    font-size: var(--fs-4);
+    color: var(--clr-neutral-100);
+}
+
+.title-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--clr-neutral-100);
+}
+
+.title-wrapper.hide { display: none; }
+
+.task-list {
+    margin-block: 1.25rem;
+    padding-bottom: 4px;
+    margin-right: -4px;
+    overflow-y: auto;
+}
+
+.task-item:not(:last-child) { margin-bottom: 2px; }
+
+.task-item {
+    background-color: var(--clr-neutral-100);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 0.875rem 18px;
+    border-radius: 4px;
+}
+
+.task-item .check-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--clr-neutral-400);
+    border-radius: 50%;
+}
+
+.task-item .item-icon:active .check-icon {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-100);
+}
+
+.task-item .check-icon::before,
+.task-item .check-icon::after {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--clr-neutral-100);
+}
+
+.task-item .check-icon::before {
+    width: 6px;
+    top: 8px;
+    left: 2px;
+    transform: rotate(45deg);
+}
+
+.task-item .check-icon::after {
+    top: 7px;
+    left: 5px;
+    transform: rotate(-45deg);
+}
+
+.task-item.complete .check-icon {
+    background-color: var(--clr-neutral-400);
+    border-color: var(--clr-neutral-400);
+}
+
+.task-item .item-text {
+    font-size: var(--fs-4);
+    padding-top: 2px;
+}
+
+.task-item.complete .item-text {
+    color: var(--clr-neutral-400);
+    text-decoration: line-through;
+}
+
+.task-item .item-action-btn {
+    margin-left: auto;
+    color: var(--clr-neutral-400);
+}
+
+.task-item .item-action-btn:is(:hover, :focus) { color: var(--clr-remove); }
+
+.input-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.task-input {
+    width: 100%;
+    background-color: var(--clr-neutral-100);
+    color: var(--eerie-black);
+    font-size: var(--fs-4);
+    padding: 14px;
+    padding-left: 50px;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.05);
+    border-radius: 8px;
+}
+
+.input-field::placeholder {
+    color: var(--clr-neutral-400);
+}
+
+.input-text,
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-text {
+    left: 50px;
+    font-size: var(--fs-4);
+    pointer-events: none;
+}
+
+.input-icon {
+    left: 14px;
+    font-size: 26px;
+}
+
+@media (min-width: 31.25em) {
+    :root {
+        --fs-1: 3rem;
+        --fs-3: 2.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .main {
+        max-width: 650px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .app {
+        padding: 25px;
+        border-radius: 10px;
+    }
+
+    .input-wrapper {
+        bottom: 25px;
+        left: 25px;
+        right: 25px;
+    }
+}
